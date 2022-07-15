@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Кондитерская у дома</title>
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        width: 100%;
+        height: auto;
+        padding-top: 140px;
+        font: 0.8em Arial, Helvetica, sans-serif;
+        background: #eb8b8b;
+      }
+
+      header {
+        width: 100%;
+        margin-bottom: 10px;
+        position: absolute;
+        top: 0;
+      }
+
+      p {
+        text-indent: 5px;
+        margin: 0 0 20px 0;
+      }
+
+      a {
+        color: red;
+      }
+
+      input {
+        margin-bottom: 10px;
+      }
+
+      @media (max-width: 700px) {
+        .info {
+          text-align: center;
+          display: block;
+        }
+      }
+
+      /* Задай размер картинок */
+      #examples img {
+        width: 680px;
+        height: 390px;
+      }
+
+      #contact-links img {
+        width: 64px;
+        height: 64px;
+      }
+
+      .news {
+        display: block;
+        max-width: 700px;
+        height: auto;
+        position: relative;
+        margin: auto;
+      }
+
+      ::-webkit-scrollbar {
+        width: 20px;
+      }
+
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: #ffa7a7;
+        border-radius: 20px;
+      }
+
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: #fbb2b2;
+      }
+
+      #container {
+        display: block;
+        width: 500px;
+        position: fixed;
+        top: 20%;
+        left: 1%;
+        opacity: 0.7;
+        z-index: 1;
+      }
+
+      .zakaz {
+        border-radius: 35px;
+        font-style: italic;
+        margin: auto;
+      }
+
+      #nav {
+        width: 180px;
+        padding: 5px;
+      }
+
+      #order {
+        text-align: center;
+        background: #fd9999;
+        padding: 5px;
+        width: 250px;
+        height: 390px;
+        border-radius: 25px;
+        font-style: italic;
+        font-weight: bold;
+      }
+
+      #order p {
+        font-size: 12;
+      }
+
+      .c-button:hover {
+        background: #1d49aa;
+      }
+
+      .c-button:focus {
+        outline: none;
+        box-shadow: 0 0 0 4px #cbd6ee;
+      }
+
+      #katalog {
+        float: right;
+        background: #f08080;
+      }
+
+      #header {
+        font-size: 2.2em;
+        text-align: center;
+        padding: 5px;
+        background: #fbb2b2;
+        width: 230px;
+        height: 35px;
+        margin: 0 auto;
+        border-radius: 25px;
+      }
+
+      #content {
+        background: #ffa7a7;
+        margin: auto;
+        padding: 10px;
+        border-radius: 0 15px 15px 15px;
+        width: 700px;
+        font-size: large;
+      }
+
+      #content p,
+      #examples p {
+        width: 700px;
+        font-style: italic;
+        text-align: center;
+      }
+
+      #aside {
+        float: right;
+        color: #000;
+        text-align: center;
+        font-size: 22px;
+      }
+
+      #examples {
+        width: 700px;
+        height: 550px;
+        background: #f29595;
+        border-radius: 15px;
+        margin-top: 35px;
+        font-size: 26px;
+        text-align: center;
+      }
+
+      #contact-links {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        font-size: 2.2em;
+        text-align: center;
+        background: #f29595;
+        width: 250px;
+        height: 130px;
+        margin: 0 auto;
+        border-radius: 60px;
+        font-style: italic;
+        margin-left: auto;
+        margin-top: 30px;
+      }
+
+      #footer {
+        text-align: center;
+        clear: both;
+        padding: 5px;
+        width: 700px;
+        position: relative;
+        margin: auto;
+      }
+
+      #logo {
+        text-align: center;
+        padding: 20px;
+        margin-top: 20px;
+      }
+
+      .button1 {
+        width: 130px;
+        height: 50px;
+        background-color: #f08080;
+        color: black;
+        border: 2px solid #cd5c5c;
+      }
+
+      .button1:hover {
+        background-color: #f44336;
+        color: #ff7777;
+      }
+
+      .button {
+        padding: 7px 3px;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 6px 2px;
+        -webkit-transition-duration: 0.4s;
+        transition-duration: 0.6s;
+        cursor: pointer;
+        border-radius: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        font-size: 12px;
+        color: 000;
+      }
+
+      .form-group input {
+        width: 100%;
+        box-sizing: border-box;
+        border: none;
+        background: transparent;
+        border-bottom: 1px solid #ccc;
+        color: #fff;
+        padding: 10px 0 10px;
+        outline: none;
+        font-family: inherit;
+      }
+
+      /* Собственно сам слайдер */
+      .slider {
+        max-width: 90%;
+        position: relative;
+        margin: auto;
+        height: 300px;
+        margin-bottom: 15px;
+      }
+      /* Картинка мастабируется по отношению к родительскому элементу */
+      .slider .item img {
+        object-fit: cover;
+        width: 100%;
+        height: 300px;
+        border: none !important;
+        box-shadow: none !important;
+      }
+      /* Кнопки вперед и назад */
+      .slider .prev,
+      .slider .next {
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        top: 50%;
+        width: auto;
+        margin-top: -22px;
+        padding: 16px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+      }
+      .slider .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+      }
+      /* При наведении на кнопки добавляем фон кнопок */
+      .slider .prev:hover,
+      .slider .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+      /* Заголовок слайда */
+      .slideText {
+        position: absolute;
+        color: #fff;
+        font-size: 35px;
+        /* Выравнивание текста по горизонтали и по вертикали*/
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        /* Тень*/
+        text-shadow: 1px 1px 1px #000, 0 0 1em #000;
+      }
+      /* Кружочки */
+      .slider-dots {
+        text-align: center;
+      }
+      .slider-dots_item {
+        cursor: pointer;
+        height: 12px;
+        width: 12px;
+        margin: 0 2px;
+        background-color: #ddd;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+      }
+      .active,
+      .slider-dots_item:hover {
+        background-color: #aaa;
+      }
+      /* Анимация слайдов */
+      .slider .item {
+        -webkit-animation-name: fade;
+        -webkit-animation-duration: 1.5s;
+        animation-name: fade;
+        animation-duration: 1.5s;
+      }
+      @-webkit-keyframes fade {
+        from {
+          opacity: 0.4;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes fade {
+        from {
+          opacity: 0.4;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container" class="zakaz">
+      <!-- Закаментировал потому что в рамках одностраничного сайта оставим быстрый заказ. Поместим в кнопку. И сделаем карусель примеров работ -->
+      <!-- <div id="nav">
+            <form action="">
+                <button class="button button1" >Специальный заказ</button>
+                <button class="button button1">Весь каталог</button>
+                <button class="button button1">Работа</button>
+            </form>
+        </div> -->
+
+      <div id="order">
+        <p>Быстрый заказ</p>
+        <form name="">
+          <div class="form-group">
+            <label>Имя</label>
+            <input type="text" name="t1" size="10" placeholder="Иван" />
+          </div>
+
+          <div class="form-group">
+            <label>Фамилия</label>
+            <input type="text" name="t2" size="10" placeholder="Иванов" />
+          </div>
+
+          <div class="form-group">
+            <label>Электронная почта (e-mail)</label
+            ><input
+              type="text"
+              name="t3"
+              size="10"
+              placeholder="example@gmail.com"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Комментарий к заказу</label
+            ><input
+              type="text"
+              name="t4"
+              size="10"
+              placeholder="Аллергия на ..."
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Номер телефона</label
+            ><input
+              type="text"
+              name="t5"
+              size="10"
+              placeholder="+7-***-***-**-**"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Выбранное блюдо</label
+            ><input type="text" name="t6" size="10" placeholder="Торт" />
+          </div>
+
+          <button>Заказать!</button>
+        </form>
+      </div>
+      <div class="qz">
+        <button id="hideContent" title="Скрыть">&#10094;</button>
+        <button id="showContent" title="Открыть">&#10095;</button>
+      </div>
+    </div>
+
+    <div class="news">
+      <div id="asize"></div>
+
+      <div id="content">
+        <p>
+          «Я и моя дружная команда кондитеров влюблены в искусство выпечки,
+          кремов и глазури. Мы находим неиссякаемый источник идей в Ваших
+          предложениях, а искренние эмоции и отзывы вдохновляют нас
+          экспериментировать со вкусами и создавать нежные десерты. С радостью
+          поможем подобрать начинки и сделаем особенный дизайн по Вашему заказу
+          для семейного праздника или важного события!»
+        </p>
+      </div>
+
+      <div id="examples">
+        <p>Наш лучший кондитер</p>
+        <img src="photos/kulinar.jpg" style="border-radius: 15px;" width="854" height="480"  />
+      </div>
+
+      <div class="show">
+        <p>Каталог</p>
+
+        <div class="slider">
+          <div class="item">
+            <img src="img/slide1.jpg" alt="Первый слайд" />
+            <div class="slideText">Заголовок слайда 1</div>
+          </div>
+
+          <div class="item">
+            <img src="img/slide2.jpg" alt="Второй слайд" />
+            <div class="slideText">Заголовок слайда 2</div>
+          </div>
+
+          <div class="item">
+            <img src="img/slide3.jpg" alt="Третий слайд" />
+            <div class="slideText">Заголовок слайда 3</div>
+          </div>
+
+          <a class="prev" onclick="minusSlide()">&#10094;</a>
+          <a class="next" onclick="plusSlide()">&#10095;</a>
+        </div>
+
+        <div class="slider-dots">
+          <span class="slider-dots_item" onclick="currentSlide(1)"></span>
+          <span class="slider-dots_item" onclick="currentSlide(2)"></span>
+          <span class="slider-dots_item" onclick="currentSlide(3)"></span>
+        </div>
+      </div>
+    </div>
+
+    <header>
+      <div id="logo">
+        <img src="Logo.png" style="width: 150px; height: 150px;" />
+      </div>
+      <div id="header">Главное о нас</div>
+    </header>
+
+    <footer>
+      <div id="contact-links">
+        <a href="https://vk.com/mint_konditer"><img src="photos/vk.png" /></a>
+        <a href="https://www.instagram.com/"><img src="photos/insta.png" /></a>
+        <a href="https://www.facebook.com/"><img src="photos/face.png" /></a>
+      </div>
+      <div id="footer">&copy; Кожанов Александр</div>
+    </footer>
+    <!-- Слайдер-каталог -->
+    <script>
+      /* Индекс слайда по умолчанию */
+      let slideIndex = 1;
+      showSlides(slideIndex);
+
+      /* Функция увеличивает индекс на 1, показывает следующй слайд*/
+      function plusSlide() {
+        showSlides((slideIndex += 1));
+      }
+
+      /* Функция уменьшяет индекс на 1, показывает предыдущий слайд*/
+      function minusSlide() {
+        showSlides((slideIndex -= 1));
+      }
+
+      /* Устанавливает текущий слайд */
+      function currentSlide(n) {
+        showSlides((slideIndex = n));
+      }
+
+      /* Основная функция слайдера */
+      function showSlides(n) {
+        let i;
+        const slides = document.getElementsByClassName("item");
+        const dots = document.getElementsByClassName("slider-dots_item");
+        if (n > slides.length) {
+          slideIndex = 1;
+        }
+        if (n < 1) {
+          slideIndex = slides.length;
+        }
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+      }
+    </script>
+    <!-- Быстрый заказ -->
+    <script>
+      let content = document.getElementById("order");
+      let show = document.getElementById("showContent");
+      let hide = document.getElementById("hideContent");
+
+      // Показываем
+      show.addEventListener("click", () => {
+        content.style.display = "block";
+      });
+
+      // Скрываем
+      hide.addEventListener("click", () => {
+        content.style.display = "none";
+      });
+    </script>
+  </body>
+</html>
